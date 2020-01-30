@@ -1,0 +1,4 @@
+{
+    "mongoURI":"mongodb+srv://Exi_Can:can_2019@can-api-ir1ev.mongodb.net/Candb?retryWrites=true",
+    "jwtSecret":"secret"
+}
