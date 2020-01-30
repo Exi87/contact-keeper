@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const Port = process.env.Port || 5000;
+const Port = process.env.Port || 9090;
 const path = require('path')
 const connectDB = require('./config/db')
 app.get('/', (req, res)=>{
