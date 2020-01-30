@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const Port = process.env.Port || 9090;
+
 const path = require('path')
 const connectDB = require('./config/db')
 
@@ -28,5 +28,7 @@ if(process.env.NODE_ENV==='production'){
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     )
 }
+
+const Port = process.env.Port || 9090;
 
 app.listen(Port, ()=>console.log(`Server started  on port ${Port}`))
