@@ -29,6 +29,9 @@ if(process.env.NODE_ENV==='production'){
     )
 }
 
+console.log(__dirname);
+
+
 const Port = process.env.Port || 9090;
 
 app.listen(Port, ()=>console.log(`Server started  on port ${Port}`))
