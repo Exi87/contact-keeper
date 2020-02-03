@@ -11,6 +11,7 @@ const Contacts = () => {
 
     useEffect(()=>{
         getContacts()
+        //eslint-disable-next-line
     }, [])
 
     return (
@@ -18,7 +19,7 @@ const Contacts = () => {
 
             {
                 filtered !== null ? filtered.map(contact => (
-                    <ContactItem contact={contact} key={contact.id} />
+                    <ContactItem contact={contact}  />
                 )) : contacts.map(contact => (
                     <ContactItem contact={contact}  />
                 ))
