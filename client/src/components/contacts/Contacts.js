@@ -1,32 +1,34 @@
-import React, { Fragment, useContext, useEffect } from 'react'
-import ContactContext from '../context/contact/contactContext'
-import ContactItem from './ContactItem';
+import React, { Fragment, useContext, useEffect } from "react";
+import ContactContext from "../context/contact/contactContext";
+import ContactItem from "./ContactItem";
 
 const Contacts = () => {
-    const contactAll = useContext(ContactContext)
+  const contactContext = useContext(ContactContext);
 
+  //console.log(contactContext);
+  const { contacts, filtered, getContacts } = contactContext;
 
-    //console.log(contactContext);
-    const { contacts, filtered , getContacts} = contactAll
+  useEffect(() => {
+    getContacts();
 
-    useEffect(()=>{
-        getContacts()
-       
     //eslint-disable-next-line
-    }, [contacts])
+  }, []);
 
-    return (
-        <Fragment>
+  if(contacts.length ===0){
+return <h4>Please add a contact</h4>
+  }
 
-            {
-                
-               contacts.map(contact => (
-                    <ContactItem contact={contact}  key={contact.id} />
-                ))
-            }
+  return (
+    <Fragment>
+      {filtered !== null
+        ? filtered.map(contact => (
+            <ContactItem key={contact.id} contact={contact} />
+          ))
+        : contacts.map(contact => (
+            <ContactItem key={contact.id} contact={contact} />
+          ))}
+    </Fragment>
+  );
+};
 
-        </Fragment>
-    )
-}
-
-export default Contacts
+export default Contacts;
