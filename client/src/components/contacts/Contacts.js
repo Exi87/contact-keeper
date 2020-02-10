@@ -11,17 +11,17 @@ const Contacts = () => {
 
     useEffect(()=>{
         getContacts()
-        //eslint-disable-next-line
-    }, [])
+       
+    //eslint-disable-next-line
+    }, [contacts])
 
     return (
         <Fragment>
 
             {
-                filtered !== null ? filtered.map(contact => (
-                    <ContactItem contact={contact}  />
-                )) : contacts.map(contact => (
-                    <ContactItem contact={contact}  />
+                
+               contacts.map(contact => (
+                    <ContactItem contact={contact}  key={contact.id} />
                 ))
             }
 
